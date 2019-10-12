@@ -94,3 +94,8 @@ _, indices_q = torch.topk(distmat_q, 20)
 z1 = torch.zeros(n, o).scatter_(1, indices_g, 1)
 z2 = torch.zeros(m, o).scatter_(1, indices_q, 1)
 P = torch.mm(z2, z1.t())
+
+#eq4
+f_cross_view_projection_consistency = torch.pow(1 / (1 +  P), 1)
+
+# used \alpha and \beta = 1 because the values are most distincitve there 
