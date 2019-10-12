@@ -6,6 +6,10 @@ Zheng Wang, Ruimin Hu, Chao Liang, Yi Yu, Junjun Jiang, Mang Ye, Jun Chen, and Q
 
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7346474
 
+[Changes]
+Rather chosing from the training samples: 
+I'm using it for cross data evaluation, i.e. the training data is replaced by the prototypes from the original dataset (called centers) and query and gallery is taken via another dataset. This is a type of cross-data evaluation. 
+
 
 ## eq2
 
