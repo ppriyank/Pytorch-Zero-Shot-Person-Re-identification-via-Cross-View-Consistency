@@ -10,7 +10,7 @@ import torch.nn.functional as f
 # galFea = torch.randn(9000, 2048)
 # centers = torch.randn(625, 2048)
 
-
+# eq2 : implementation in pytroch
 class w_calc(nn.Module):
     def __init__(self, num_classes1=900, num_classes2=625, feat_dim=2048, p=0.000005,lmbd=0.0000005 ,use_gpu=True):
         super(w_calc, self).__init__()
@@ -74,6 +74,7 @@ Dx = torch.mm(centers.t() , l2.w ).t()
 T1 =torch.pow((Dx - galFea),2).sum(-1).sqrt().mean()
 print(T1)
 
+# eq3 : implementation in pytroch
 w_query = (l1.w.t() > 0).float()  
 w_gallery = (l2.w > 0).float() 
 score = torch.mm(w_query, w_gallery)
