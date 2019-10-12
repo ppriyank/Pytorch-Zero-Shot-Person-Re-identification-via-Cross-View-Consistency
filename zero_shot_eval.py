@@ -79,3 +79,18 @@ w_query = (l1.w.t() > 0).float()
 w_gallery = (l2.w > 0).float() 
 score = torch.mm(w_query, w_gallery)
 f_cross_view_support_consistency = torch.pow(1 / (1 +  score), 1)
+
+
+m, n , o = probFea.size(0), galFea.size(0) , centers.size(0)
+distmat_q = torch.pow(probFea, 2).sum(dim=1, keepdim=True).expand(m, o) + \
+          torch.pow(centers, 2).sum(dim=1, keepdim=True).expand(o, m).t()
+distmat_q = distmat_q.addmm_(1, -2, probFea, centers.t()).sqrt()
+
+distmat_g = torch.pow(galFea, 2).sum(dim=1, keepdim=True).expand(n, o) + \
+          torch.pow(centers, 2).sum(dim=1, keepdim=True).expand(o, n).t()
+distmat_g = distmat_g.addmm_(1, -2, galFea, centers.t()).sqrt()
+_, indices_g = torch.topk(distmat_g, 20)
+_, indices_q = torch.topk(distmat_q, 20)
+z1 = torch.zeros(n, o).scatter_(1, indices_g, 1)
+z2 = torch.zeros(m, o).scatter_(1, indices_q, 1)
+torch.mm(z2, z1.t())
