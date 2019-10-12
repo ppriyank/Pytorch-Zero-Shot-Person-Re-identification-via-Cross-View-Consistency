@@ -19,3 +19,8 @@ I'm using it for cross data evaluation, i.e. the training data is replaced by th
 ## eq3
 
 ![eq3](https://github.com/ppriyank/Pytorch-Zero-Shot-Person-Re-identification-via-Cross-View-Consistency/blob/master/eq3.png)
+
+
+## eq4
+
+![eq4](https://github.com/ppriyank/Pytorch-Zero-Shot-Person-Re-identification-via-Cross-View-Consistency/blob/master/eq4.png)
