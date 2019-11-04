@@ -1,4 +1,4 @@
-# Pytorch-Zero-Shot-Person-Re-identification-via-Cross-View-Consistency
+# Pytorch  Zero Shot Person Re-identification via Cross View Consistency
 
 Implementation of the paper:   
 Zero-Shot Person Re-identification via Cross-View Consistency  
